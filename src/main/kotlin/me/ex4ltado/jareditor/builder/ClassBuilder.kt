@@ -13,9 +13,10 @@ import java.io.DataOutputStream
 /**
  * ClassBuilder is a utility class for dynamically creating new classes using Javassist.
  *
+ * @property classManager The ClassPool object that will be used to create the class.
  * @property className The name of the class to be created.
  * @property packagePath The package path where the class will be created.
- * @property classManager The ClassPool object that will be used to create the class.
+ * @property override Whether to override the class if it already exists.
  */
 class ClassBuilder(
     private val classManager: ClassManager,
@@ -128,19 +129,19 @@ class ClassBuilder(
     /**
      * Adds a method to the class being created.
      *
-     * @param mName The name of the method.
+     * @param methodName The name of the method.
      * @param accessLevel The visibility of the method (public, private, etc.).
      * @param static Whether the method is static.
      * @param body The body of the method.
      * @return The ClassBuilder instance.
      */
     inline fun addMethod(
-        mName: String,
+        methodName: String,
         accessLevel: AccessLevel = AccessLevel.PUBLIC,
         static: Boolean = false,
         body: InlineCode,
     ): ClassBuilder {
-        val methodSignature = "${accessLevel.modifier} ${if (static) "static" else ""} void $mName()"
+        val methodSignature = "${accessLevel.modifier} ${if (static) "static" else ""} void $methodName()"
         val code = codeBuilder {
             line("$methodSignature {")
             this.body()
@@ -152,7 +153,7 @@ class ClassBuilder(
     /**
      * Adds a method to the class being created.
      *
-     * @param mName The name of the method.
+     * @param methodName The name of the method.
      * @param accessLevel The visibility of the method (public, private, etc.).
      * @param static Whether the method is static.
      * @param body The body of the method.
@@ -161,14 +162,14 @@ class ClassBuilder(
      * @return The ClassBuilder instance.
      */
     inline fun addMethod(
-        mName: String,
+        methodName: String,
         accessLevel: AccessLevel = AccessLevel.PUBLIC,
         static: Boolean = false,
         body: InlineCode,
         returnType: Class<*> = Void.TYPE,
         vararg parameters: Parameter
     ): ClassBuilder {
-        val methodSignature = "${accessLevel.modifier} ${if (static) "static" else ""} ${returnType.name} $mName"
+        val methodSignature = "${accessLevel.modifier} ${if (static) "static" else ""} ${returnType.name} $methodName"
         val methodParams = parameters.joinToString(",") { it.type.name + " " + it.name }
         val code = codeBuilder {
             line("$methodSignature($methodParams) {")
