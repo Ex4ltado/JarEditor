@@ -246,8 +246,8 @@ The app is still in development, but it is already possible to decompile .jar fi
 
 App source code can be found [here](src/main/java/me/ex4ltado/jareditor/app).
 
-![](images\EmptyGUI.png)
+![](/images/EmptyGUI.png)
 
-![](images\DecompiledJar.png)
+![](/images/DecompiledJar.png)
 
-![](images\ModifiedJar.png)
+![](/images/ModifiedJar.png)
