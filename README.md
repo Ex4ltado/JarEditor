@@ -1,16 +1,15 @@
-## Jarpulator ⚡️
+## JarEditor ⚡️
 
-Jarpulator is a Java/Kotlin lib that uses Javassist to decompile, modify and recompile .jar files.
+JarEditor is a Java/Kotlin lib that uses Javassist to decompile, modify and recompile .jar files.
 
 allows you to decompile, modify and recompile .jar files.
 
 <!-- TOC -->
-
-* [Jarpulator ⚡️](#jarpulator-)
+  * [JarEditor ⚡️](#jareditor-)
     * [Use Example](#use-example)
+    * [More Examples](#more-examples)
     * [📝 Table of Contents](#-table-of-contents)
-    * [Images](#images)
-
+    * [App](#app)
 <!-- TOC -->
 
 ---
