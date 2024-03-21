@@ -1,2 +1,2 @@
-rootProject.name = "Jarpulator"
+rootProject.name = "JarEditor"
 

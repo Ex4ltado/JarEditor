@@ -59,7 +59,7 @@ val mainClass = jar.mainClass()!!
 val clazz = classManager.makeClass(jar, mainClass.toBytecode())
 ```
 
-After that you can modify the bytecode of the `main` method to print `Hello, Jarpulator!` before the first line of the
+After that you can modify the bytecode of the `main` method to print `Hello, JarEditor!` before the first line of the
 method:
 
 ```kotlin
@@ -72,7 +72,7 @@ val classEditor = ClassEditorImpl(classManager)
 // Coding can be easily done with the code builder
 // The code is then converted to a string and can be used to edit classes
 val code = codeBuilder {
-    jprintln("Hello, Jarpulator!")
+    jprintln("Hello, JarEditor!")
 }
 
 // Insert the code at the beginning of the main method
@@ -96,7 +96,7 @@ The output of the modified runnable jar file will be:
 ```java
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, Jarpulator!");
+        System.out.println("Hello, JarEditor!");
         System.out.println("Hello, World!");
     }
 }
@@ -139,7 +139,7 @@ More "complex" code also can be added:
 
 ```kotlin
 val code = codeBuilder {
-    jprintln("Hello, Jarpulator!")
+    jprintln("Hello, JarEditor!")
 
     // You can use the "line" function to add a line of code
     line("if (1 == 1) { System.out.println(\"Inside If!\"); }")
@@ -190,7 +190,7 @@ After that, you can recompile the modified jar and the output will be something 
 ```java
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, Jarpulator!");
+        System.out.println("Hello, JarEditor!");
         if (true)
             System.out.println("Inside If!");
         int x = -93;

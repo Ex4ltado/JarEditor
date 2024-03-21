@@ -60,7 +60,7 @@ class ClassEditorTest {
         // Coding can be easily done with the code builder
         // The code is then converted to a string and can be used to edit classes
         val code = codeBuilder {
-            jprintln("Hello, Jarpulator!")
+            jprintln("Hello, JarEditor!")
 
             // You can use the "line" function to add a line of code
             line("if (1 == 1) { System.out.println(\"Inside If!\"); }")
