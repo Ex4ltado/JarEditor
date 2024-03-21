@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="550.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/18"
+      fx:controller="me.ex4ltado.jareditor.app.controller.FXMLJarEditorController">
+    <children>
+        <BorderPane fx:id="borderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                    minHeight="-Infinity" minWidth="-Infinity" onDragDropped="#onDragDropped" onDragOver="#onDragOver"
+                    VBox.vgrow="ALWAYS">
+            <center>
+                <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #40373D;"
+                      BorderPane.alignment="CENTER">
+                    <children>
+                        <Label fx:id="lblDragJarHere" alignment="CENTER" contentDisplay="CENTER" style="&#10;"
+                               text="Drag a .jar file here..." textAlignment="CENTER" textFill="#919191">
+                            <font>
+                                <Font name="Consolas" size="14.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</VBox>
