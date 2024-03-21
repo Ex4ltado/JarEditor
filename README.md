@@ -2,8 +2,6 @@
 
 JarEditor is a Java/Kotlin lib that uses Javassist to decompile, modify and recompile .jar files.
 
-allows you to decompile, modify and recompile .jar files.
-
 <!-- TOC -->
   * [JarEditor ⚡️](#jareditor-)
     * [Use Example](#use-example)
