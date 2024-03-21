@@ -372,10 +372,6 @@ class CodeBuilder(private val instruction: StringBuilder = StringBuilder(), priv
         return this
     }
 
-    /*if (it is Variable<*>) {
-        line("${it.type.toPrimitive().name} ${it.name} = ${it.expression?.build() ?: it.value};")
-    }*/
-
     fun call(method: String, vararg args: Any?): CodeBuilder {
         line("$method(${formatVararg(args, ", ")});")
         return this
@@ -392,12 +388,16 @@ class CodeBuilder(private val instruction: StringBuilder = StringBuilder(), priv
         return argList
     }
 
-    // TODO: Call java methods - _call("System.out.println", "Hello, World!"), _call(
-
     override fun toString(): String {
         return instruction.toString()
     }
 
+}
+
+inline fun codeBuilder(builder: InlineCode): CodeBuilder {
+    val codeBuilder = CodeBuilder()
+    codeBuilder.builder() // apply the builder
+    return codeBuilder
 }
 
 fun KClass<*>.isPrimitive(): Boolean {
@@ -415,12 +415,6 @@ fun KClass<*>.isPrimitive(): Boolean {
     }
 }
 
-inline fun codeBuilder(builder: InlineCode): CodeBuilder {
-    val codeBuilder = CodeBuilder()
-    codeBuilder.builder() // apply the builder
-    return codeBuilder
-}
-
 fun Class<*>.toPrimitive(): Class<*> {
     return when (this) {
         Integer::class.java -> Int::class.java
@@ -432,13 +426,6 @@ fun Class<*>.toPrimitive(): Class<*> {
         java.lang.Float::class.java -> Float::class.java
         java.lang.Double::class.java -> Double::class.java
         else -> this
-    }
-}
-
-fun Class<*>.arePrimitive(): Boolean {
-    return when (this) {
-        Int::class.java, Boolean::class.java, Char::class.java, Byte::class.java, Short::class.java, Long::class.java, Float::class.java, Double::class.java -> true
-        else -> false
     }
 }
 
