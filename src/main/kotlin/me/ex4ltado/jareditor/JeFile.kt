@@ -68,7 +68,7 @@ class JeFile(private val jar: JarFile) {
         if (bytecode.size < 4 || !bytecode.sliceArray(0..3).contentEquals(cafebabe)) {
             throw IllegalArgumentException("Invalid class file")
         }
-        //dataEntries.addOrUpdate(DataEntry(className.normalizeToClassEntry(), bytecode))
+        dataEntries.addOrUpdate(DataEntry(className.toJavaName(), bytecode))
     }
 
     fun deleteEntry(name: String) {

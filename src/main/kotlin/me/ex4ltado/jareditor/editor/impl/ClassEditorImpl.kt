@@ -66,8 +66,8 @@ class ClassEditorImpl(private val classManager: ClassManager) : ClassEditor {
 
                 classManager.makeClass(jar, runnableBytecode)
                 classManager.makeClass(jar, wrapperBytecode)
-                jar.modifyOrPutClass(runnable.className, runnableBytecode)
-                jar.modifyOrPutClass(wrapper.className, wrapperBytecode)
+                //jar.modifyOrPutClass(runnable.className, runnableBytecode)
+                //jar.modifyOrPutClass(wrapper.className, wrapperBytecode)
             }
 
             ClassEditor.InsertionMode.NEW_THREAD -> {
@@ -83,8 +83,7 @@ class ClassEditorImpl(private val classManager: ClassManager) : ClassEditor {
 
                 val runnableBytecode = runnable.toBytecode()
                 classManager.makeClass(jar, runnableBytecode)
-
-                jar.modifyOrPutClass(runnable.className, runnable.toBytecode())
+                //jar.modifyOrPutClass(runnable.className, runnable.toBytecode())
             }
 
             ClassEditor.InsertionMode.OVERWRITE -> { // can trigger the AntiVirus I don't know why
